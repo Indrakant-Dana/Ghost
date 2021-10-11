@@ -55,7 +55,9 @@ module.exports = {
             return models.User.findOne({role: 'Owner', status: 'all'})
                 .then((owner) => {
                     if (owner.id !== frame.options.context.user) {
-                        throw new errors.NoPermissionError({message: tpl(messages.notTheBlogOwner)});
+                        throw new errors.NoPermissionError({
+                            message: tpl(messages.notTheBlogOwner)
+                        });
                     }
                 });
         },
